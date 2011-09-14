@@ -7,14 +7,12 @@ import org.jibble.pircbot.*;
 
 public class WasteBot extends PircBot 
 {
+
 	private int alternate;
 	private String mess;
 	private String botname;
 	private String channel;
 	private String me;
-	private String rea;
-	private String red;
-	private String fail;
 	private int rp;
 
 	public WasteBot(String n, String chan)
@@ -49,7 +47,7 @@ public class WasteBot extends PircBot
 
 	public void onJoin(String channel, String sender, String login, String hostname)
 	{
-		String [] friends = {"rudebox","Redache","reality","Willow","fail","lavard","Paulie","Snow","enemy"};
+		String [] friends = {"rudebox","Redache","reality","Willow","fail","lavard","dogbox","Snow","enemy", getName()};
 		boolean notfriend = true;
 
 		for (String f : friends)
