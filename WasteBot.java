@@ -9,6 +9,7 @@ public class WasteBot extends PircBot
 {
 	private int alternate;
 	private String mess;
+	private String botname;
 	private String channel;
 	private String me;
 	private String rea;
@@ -75,6 +76,17 @@ public class WasteBot extends PircBot
 	protected void onDeop(String channel, String sourceNick, String sourceLogin, String sourceHostname, String recipient)
 	{
 		
+	}
+
+	protected void onAction(String sender, String login, String hostname, String target, String action)
+	{
+		boolean mentioned = false;
+		mentioned = action.indexOf(getName()) > 0;
+		if (mentioned)
+		{	
+			String reply = action.replaceAll(getName(), sender);
+			sendAction(channel, reply);
+		}
 	}
 
 	protected void onMessage(String channel, String sender, String login, String hostname, String message) 
